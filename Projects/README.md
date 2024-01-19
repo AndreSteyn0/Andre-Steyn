@@ -5,6 +5,7 @@ Explore the diverse range of projects housed in this directory, each designed to
 
  ---
  
-# Project Categorie:
-- **Road to Full Stack Engineer**
+# Project Categories:
+- **Road to Full Stack Engineer:**
+
 Here you will find smaller projects focusing on specific skills, like CSS, HTML, JavaScript, etc. These projects showcase my learning journey as I strive to become well-rounded full stack engineer.
