@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+/* || VARIABLES */
+
+:root {
+  /* FONTS */
+  --FS: clamp(1rem, 2.2vh, 1.5rem);
+
+  /* COLORS */
+  --BGCOLOR: rgb(206, 206, 42);
+  --BGCOLORFADE: rgba(196, 196, 180, 0.856);
+  --BGIMAGE: linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLORFADE));
+  --BODY-BGCOLOR: whitesmoke;
+  --BORDER-COLOR: #333;
+  --BUTTON-COLOR: whitesmoke;
+  --FONT-COLOR: #333;
+  --HEADER-BGCOLOR: #333;
+  --HEADER-COLOR: whitesmoke;
+  --HERO-BGCOLOR: rgba(12, 143, 12, 0.3);
+  --HERO-COLOR: whitesmoke;
+  --HIGHLIGHT-COLOR: rgb(12, 143, 12);
+  --LINK-ACTIVE: var(--BGCOLOR);
+  --LINK-COLOR: #000;
+  --LINK-HOVER: #333;
+  --NAV-BGCOLOR: whitesmoke;
+
+  /* BORDERS */
+  --BORDERS: 1px solid var(--BORDER-COLOR);
+  --BORDER-RADIUS: 15px;
+
+  /* STANDARD PADDING */
+  --PADDING-TOP-BOTTOM: 0.25em;
+  --PADDING-SIDE: 2.5%;
+
+  /* STANDARD MARGIN */
+  --MARGIN: clamp(1em, 2.5vh, 1.5em) 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --BGCOLOR-FFADE: whitesmoke;
+    --BGCOLOR: #333;
+    --BODY-BGCOLOR: #333;
+    --BORDER-COLOR: whitesmoke;
+    --BUTTON-COLOR: #333;
+    --FONT-COLOR: whitesmoke;
+    --HEADER-COLOR: whitesmoke;
+    --HERO-COLOR: #333;
+    --HIGHLIGHT-COLOR: whitesmoke;
+    --LINK-ACTIVE: rgb(230, 230, 34);
+    --LINK-COLOR: whitesmoke;
+    --LINK-HOVER: rgb(206, 206, 42);
+    --NAV-BGCOLOR: rgb(20, 20, 20);
+  }
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.center {
+  text-align: center;
+}
+
+/* || GENERAL STYLES */
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--FS);
+  font-family: "Nunito", sans-serif;
+  background-color: var(--BGCOLOR);
+  background-image: var(--BGIMAGE);
+}
+
+body {
+  background-color: var(--BODY-BGCOLOR);
+  color: var(--FONT-COLOR);
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  border-left: var(--BORDERS);
+  border-right: var(--BORDERS);
+  box-shadow: 0 0 10px var(--BORDER-COLOR);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.1em;
+}
+
+h2,
+h3 {
+  margin-bottom: 1em;
+  color: var(--HIGHLIGHT-COLOR);
+}
+
+p {
+  line-height: 1.5;
+}
+
+a:any-link {
+  text-decoration: none;
+  color: var(--LINK-COLOR);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--LINK-HOVER);
+  font-weight: lighter;
+}
+
+a:active {
+  color: var(--LINK-ACTIVE);
+}
+
+/* || HEADER */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header__h1 {
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  text-align: center;
+  padding: var(--PADDING-TOP-BOTTOM) var(--PADDING-SIDE);
+}
+
+.header__nav {
+  background-color: var(--NAV-BGCOLOR);
+  border-bottom: var(--BORDERS);
+  font-weight: bold;
+  box-shadow: 0 6px 5px -5px;
+}
+
+.header__ul {
+  padding: var(--PADDING-TOP-BOTTOM) var(--PADDING-SIDE);
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+/* || HERO */
+.hero {
+  position: relative;
+}
+
+.hero__h2 {
+  background-color: var(--HERO-BGCOLOR);
+  color: var(--HERO-COLOR);
+  padding: 0.25em 0.5em;
+  text-shadow: 2px 2px 5px var(--BORDER-COLOR);
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  animation: showWelcome 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes showWelcome {
+  0% {
+    top: -20px;
+    transform: skew(0deg, -5deg) scaleY(0);
+  }
+
+  80% {
+    top: 30px;
+    transform: skew(10deg, -5deg) scaleY(1.2);
+  }
+
+  100% {
+    top: 20px;
+    transform: skew(-10deg, -5deg) scaleY(1);
+  }
+}
+
+/* || FOOTER */
+.footer {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  padding: var(--PADDING-TOP-BOTTOM) var(--PADDING-SIDE);
+  text-align: center;
+}
+
+/* || MAIN */
+.main {
+  padding: var(--PADDING-TOP-BOTTOM) var(--PADDING-SIDE);
+}
+
+.main__article {
+  scroll-margin-top: 6.5rem;
+  margin: var(--MARGIN);
+}
+
+.main__article:first-child {
+  margin-top: 1em;
+}
+
+.main__article:last-child {
+  min-height: calc(100vh - 20rem);
+}
+
+/* || ABOUT */
+.about__aside {
+  margin: var(--MARGIN);
+}
+
+.about__aside-answer {
+  margin-top: 1em;
+}
+
+/* || CONTACT */
+
+.contact__h2 {
+  margin: 0;
+}
+
+.contact__fieldset {
+  border: none;
+}
+
+.contact__p {
+  margin: 1em 0;
+}
+
+.contact__label {
+  display: block;
+  font-weight: bold;
+}
+
+.contact__input,
+.contact__textarea {
+  padding: 0.5em;
+  border-radius: var(--BORDER-RADIUS);
+  border-width: 2px;
+  width: 100%;
+}
+
+.contact__button {
+  padding: 0.5em;
+  border-radius: var(--BORDER-RADIUS);
+  color: var(--BUTTON-COLOR);
+  font-weight: bold;
+}
+
+.contact__button__send {
+  background-color: rgb(81, 224, 81);
+}
+
+.contact__button__reset {
+  background-color: rgb(216, 58, 58);
+}
+
+/* || MENU */
+thead,
+tbody,
+tfoot,
+tr {
+  display: contents;
+}
+
+.menu__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "hd1 hd2 hd3"
+    "b b1 b3p"
+    "b b2 b3p"
+    "b b3 b3p"
+    "c c1 c3p"
+    "c c2 c3p"
+    "c c3 c3p";
+  gap: 0.1em;
+  margin-bottom: 1em;
+}
+
+.menu__beef {
+  grid-area: b;
+}
+
+.menu__chicken {
+  grid-area: c;
+  border-bottom-left-radius: var(--BORDER-RADIUS);
+}
+
+.menu__beef,
+.menu__chicken,
+.menu__header {
+  color: var(--HIGHLIGHT-COLOR);
+  font-weight: bold;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.menu__header,
+.menu__item {
+  width: 100%;
+  padding: 1em;
+  border: medium ridge var(--BORDER-COLOR);
+}
+
+.menu__item {
+  display: grid;
+  place-content: center;
+}
+
+thead th:first-child {
+  border-top-left-radius: var(--BORDER-RADIUS);
+}
+
+thead th:last-child {
+  border-top-right-radius: var(--BORDER-RADIUS);
+}
+
+.curve__rb__border {
+  border-bottom-right-radius: var(--BORDER-RADIUS);
+}
+
+@media screen and (min-width: 576px) {
+  .header__h1::before {
+    content: "🍔 ";
+  }
+
+  .header__h1::after {
+    content: " 🍔";
+  }
+
+  .menu__header,
+  .menu__chicken,
+  .menu__beef {
+    font-size: 125%;
+  }
+}

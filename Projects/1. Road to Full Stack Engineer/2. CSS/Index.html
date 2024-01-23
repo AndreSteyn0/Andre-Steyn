@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="André Steyn" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Burgers</title>
+    <link rel="icon" href="images/html5.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="header__h1">Best Burgers</h1>
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li><a href="#Menu">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="hours.html">Hours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2 class="hero__h2">Welcome!</h2>
+      <figure>
+        <img
+          src="images/home_burgers_1000x668.jpg"
+          alt="Burgers"
+          title="Our beautiful Burgers"
+          width="1000"
+          height="668"
+        />
+        <figcaption class="offscreen">
+          Look at our delicious burgers!
+        </figcaption>
+      </figure>
+    </section>
+
+    <main class="main">
+      <article id="menu" class="main__article menu__article">
+        <h2 id="Menu" class="menu__h2">Our Menu</h2>
+        <table class="menu__container">
+          <caption class="offscreen">
+            Our Burgers
+          </caption>
+          <thead>
+            <tr>
+              <th class="menu__header" scope="col">Burgers</th>
+              <th class="menu__header" scope="col">Quantity</th>
+              <th class="menu__header" scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="menu__item menu__beef" scope="row" rowspan="3">
+                Beef
+              </th>
+              <td class="menu__item">1</td>
+              <td class="menu__item">$4.50</td>
+            </tr>
+            <tr>
+              <td class="menu__item">2</td>
+              <td class="menu__item">$8.50</td>
+            </tr>
+            <tr>
+              <td class="menu__item">3</td>
+              <td class="menu__item">$12.00</td>
+            </tr>
+            <tr>
+              <th class="menu__item menu__chicken" scope="row" rowspan="3">
+                Chicken
+              </th>
+              <td class="menu__item">1</td>
+              <td class="menu__item">$4.00</td>
+            </tr>
+            <tr>
+              <td class="menu__item">2</td>
+              <td class="menu__item">$7.50</td>
+            </tr>
+            <tr>
+              <td class="menu__item">3</td>
+              <td class="menu__item curve__rb__border">$9.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="center">
+          <a href="#">Back to Top</a>
+        </p>
+      </article>
+    </main>
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Best Burgers</span>
+      </p>
+    </footer>
+  </body>
+</html>
