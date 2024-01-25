@@ -8,16 +8,9 @@ import {
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 
-// export const appConfig: ApplicationConfig = {
-//   providers: [
-//     provideRouter(routes, withPreloading(PreloadAllModules)),
-//     provideClientHydration(),
-//   ],
-// };
-
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideClientHydration(),
   ],
 };

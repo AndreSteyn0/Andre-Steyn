@@ -5,8 +5,8 @@ export const routes: Routes = [
     path: '',
     pathMatch: 'full',
     loadComponent: () =>
-      import('./components/welcome/welcome.component').then(
-        (mod) => mod.WelcomeComponent
+      import('./components/main/main.component').then(
+        (mod) => mod.MainComponent
       ),
   },
   {
@@ -15,5 +15,9 @@ export const routes: Routes = [
       import('./components/experience/detailed/dariel/dariel.component').then(
         (mod) => mod.DarielComponent
       ),
+  },
+  {
+    path: '**',
+    redirectTo: ''
   },
 ];
