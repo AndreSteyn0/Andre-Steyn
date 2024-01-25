@@ -4,12 +4,17 @@
 @tailwind utilities;
 
 .main-bg-color{
-    background-color: #f5df4e;
+    background-color: #df9528;
 }
 
 .main-color{
-    color: #f5df4e;
+    color: #df9528;
 }
+
+
+.custom-blue{
+    color: #05263b;
+  }
 
 .black-mask {
     --opacity: 0.5;
