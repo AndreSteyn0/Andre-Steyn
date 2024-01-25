@@ -1,0 +1,91 @@
+<!-- <header class="sticky top-0 z-10 bg-gray-900 p-2">
+  <section class="mx-auto max-w-7xl flex items-center justify-between p-2">
+    <h1 class="text-white text-4xl font-bold uppercase">André</h1>
+    <nav class="hidden text-xl font-bold md:block main-color">
+      <a
+        class="hover:opacity-80 hover:cursor-pointer p-2 main-color no-underline"
+        routerLink=""
+        routerLinkActive="active"
+        >Home</a
+      >
+      <a
+        class="hover:opacity-80 hover:cursor-pointer p2 main-color no-underline"
+        routerLink="/about"
+        routerLinkActive="active"
+        >About</a
+      >
+      <a
+        class="hover:opacity-80 hover:cursor-pointer p-2 main-color no-underline"
+        routerLink="/experience"
+        routerLinkActive="active"
+        >Experience</a
+      >
+    </nav>
+  </section>
+</header> -->
+
+<header class="sticky top-0 z-10 bg-gray-900 p-2">
+  <section class="mx-auto max-w-7xl flex items-center justify-between p-2">
+    <h1 class="text-white text-4xl font-bold uppercase">André</h1>
+    <button
+      type="button"
+      class="flex items-end text-white text-4xl font-bold hover:cursor-pointer"
+      data-bs-toggle="modal"
+      data-bs-target="#headerModal"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+  </section>
+</header>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="headerModal"
+  tabindex="-1"
+  aria-labelledby="headerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content bg-black opacity-70 p-8">
+      <div class="modal-body">
+        <button
+          type="button"
+          class="text-white text-6xl font-bold hover:cursor-pointer"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+        <div class="flex flex-col items-center align-middle">
+          <ul class="p-0">
+            <li>
+              <a
+                class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
+                routerLink=""
+                routerLinkActive="active"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
+                routerLink="/about"
+                routerLinkActive="active"
+                >About Me</a
+              >
+            </li>
+            <li>
+              <a
+                class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
+                routerLink="/experience"
+                routerLinkActive="active"
+                >Experience</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

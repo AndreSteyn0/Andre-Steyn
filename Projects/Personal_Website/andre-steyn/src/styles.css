@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-bg-color{
+    background-color: #f5df4e;
+}
+
+.main-color{
+    color: #f5df4e;
+}
+
+.black-mask {
+    --opacity: 0.5;
+    background-color: rgb(0 0 0 / var(--opacity));
+}
+
+.yellow-mask {
+    --opacity: 0.3;
+    background-color:rgb(245 223 78 / var(--opacity));
+}
+
+.yellow-underline{
+    text-decoration: underline #f5df4e ;
+}
+
+.gray-underline{
+    text-decoration: underline rgb(31 41 55) ;
+}
