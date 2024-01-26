@@ -3,6 +3,7 @@ import { AboutComponent } from '../about/about.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { HeaderComponent } from '../header/header.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
+import { EducationComponent } from '../education/education.component';
 
 @Component({
   selector: 'app-main',
@@ -12,6 +13,7 @@ import { WelcomeComponent } from '../welcome/welcome.component';
     WelcomeComponent,
     AboutComponent,
     ExperienceComponent,
+    EducationComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
