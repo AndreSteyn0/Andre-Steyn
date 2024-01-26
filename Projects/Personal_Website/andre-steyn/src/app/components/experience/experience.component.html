@@ -1,6 +1,6 @@
 <section class="flex flex-col sm:flex-row">
   <div id="experienceAnchor" class="relative -top-16"></div>
-  <div class="m-0 w-full sm:w-2/3">
+  <div class="m-0 w-full sm:w-7/12">
     <div class="bg-slate-300 w-full flex flex-col items-end">
       <h1
         class="flex items-end justify-end main-bg-color max-w-fit custom-blue text-3xl uppercase p-2 font-bold"
@@ -8,34 +8,59 @@
         Experience
       </h1>
     </div>
-    
-    <div class="bg-slate-300 w-full p-8">
-      <div class="experience custom-blue text-lg">
+
+    <div class="bg-slate-300 w-full px-8 text-lg">
+      <div class="experience custom-blue">
         <div id="darielAnchor" class="relative -top-20"></div>
-        <h2 class="custom-blue text-2xl font-bold">
-          Dariel Software, Johannesburg (South Africa)
-        </h2>
+        <div class="flex flex-row justify-between items-center">
+          <div class="flex flex-col">
+            <h2 class="text-2xl m-0 font-bold">Johannesburg,</h2>
+            <h2 class="text-2xl m-0 font-bold">South Africa</h2>
+          </div>
+          <div class="flex">
+            <a
+              class="no-underline hover:cursor-pointer"
+              href="https://www.dariel.co.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-32 h-auto flex mb-2"
+                src="../../../../../assets/img/logos/dariel_logo_300X100.webp"
+                alt="Dariel"
+                width="300"
+                height="100"
+              />
+            </a>
+          </div>
+        </div>
         <p class="font-semibold mb-0">Junior Software Developer</p>
-        <p class="font-semibold">Feb 2023 to Present</p>
+            <p class="font-semibold">Feb 2023 to Present</p>
         <p class="">
-          Join me on my journey at Dariel Software, a prominent software
-          consulting firm in Johannesburg, specializing in software development,
-          integration, technology consulting, and digital transformation. They
-          excel in creating tailored software solutions, managing the entire
-          development lifecycle, and seamlessly connecting applications and data
-          sources.
+          <span class="font-bold"
+            >Join me on my journey at Dariel Software,</span
+          >
+          a prominent software consulting firm in Johannesburg, specializing in
+          software development, integration, technology consulting, and digital
+          transformation. They excel in creating tailored software solutions,
+          managing the entire development lifecycle, and seamlessly connecting
+          applications and data sources.
         </p>
         <p class="">
-          As a Junior Software Developer, my role at Dariel has been dynamic and
-          challenging. I started my journey by being assigned to a private
-          hospital company as a client. Here, I delved into the existing project
-          by writing unit tests, gaining a deeper understanding of its
-          functionality. Subsequently, I contributed to a CMS project by
-          extending the functionality of the FHIR API, enhancing its
-          capabilities.
+          <span class="font-bold">As a Junior Software Developer,</span>
+          my role at Dariel has been dynamic and challenging. I started my
+          journey by being assigned to a private hospital company as a client.
+          Here, I delved into the existing project by writing unit tests,
+          gaining a deeper understanding of its functionality. Subsequently, I
+          contributed to a CMS project by extending the functionality of the
+          FHIR API, enhancing its capabilities.
         </p>
         <p class="">
-          My role further evolved as I took on different responsibilities,
+          <span class="font-bold"
+            >My role further evolved as I took on different
+            responsibilities,</span
+          >
+
           focusing on resolving critical bugs in the main application, ensuring
           its reliability and performance. The journey culminated as I took the
           lead in getting an inherited Angular application up and running,
@@ -43,46 +68,78 @@
           challenges.
         </p>
         <button
-          class="text-blue-500 font-bold underline"
-          (click)= "onClickReadMore('darielAnchor','dariel')"
-          >Read More</button
+          class="text-blue-500 font-bold hover:text-blue-600 underline"
+          (click)="onClickReadMore('darielAnchor', 'dariel')"
         >
+          Read More
+        </button>
       </div>
 
-      <div class="experience mt-8">
+      <hr />
+
+      <div class="experience mt-2">
         <div id="minopexAnchor" class="relative -top-20"></div>
-        <h2 class="custom-blue text-2xl font-bold">
-          Minopex, Kroondal (South Africa)
-        </h2>
-        <p class=" font-semibold mb-0">Process Engineering Intern</p>
-        <p class=" font-semibold">Jan 2021 to Feb 2021</p>
+        <div class="flex flex-row justify-between items-center">
+          <div class="flex flex-col">
+            <h2 class="text-2xl m-0 font-bold">Kroondal,</h2>
+            <h2 class="text-2xl m-0 font-bold">South Africa</h2>
+          </div>
+          <div class="flex">
+            <a
+            class="no-underline hover:cursor-pointer"
+            href="https://minopex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="w-32 h-auto flex items-center mb-2"
+              src="../../../../../../assets/img/logos/minopex_138x39.png"
+              alt="Minopex"
+              width="300"
+              height="100"
+            />
+          </a>
+          
+          </div>
+        </div>
+        <p class="font-semibold mb-0">Process Engineering Intern</p>
+        <p class="font-semibold">Jan 2021 to Feb 2021</p>
         <p class="">
-          During my initial role at Minopex, I spearheaded a significant project
-          investigating the efficiency of dense medium cyclones and optimizing
-          ferrosilicon recovery, contributing to cost-effective process
-          enhancements.
+          <span class="font-bold">During my initial role at Minopex,</span>
+          I spearheaded a significant project investigating the efficiency of
+          dense medium cyclones and optimizing ferrosilicon recovery,
+          contributing to cost-effective process enhancements.
         </p>
-        <p class=" mt-3">
-          My collaboration with the junior metallurgist involved innovative data
-          analysis techniques to improve accuracy in flotation cell data
-          management. Additionally, I demonstrated strong written communication
-          skills in preparing various reports and documents, actively engaged in
-          continuous improvement initiatives, upheld safety standards, and
-          leveraged advanced Excel and Python expertise to streamline data
-          analysis and reporting processes.
+        <p class="mt-3">
+          <span class="font-bold"
+            >My collaboration with the junior metallurgist involved,</span
+          >
+          innovative data analysis techniques to improve accuracy in flotation
+          cell data management. Additionally, I demonstrated strong written
+          communication skills in preparing various reports and documents,
+          actively engaged in continuous improvement initiatives, upheld safety
+          standards, and leveraged advanced Excel and Python expertise to
+          streamline data analysis and reporting processes.
         </p>
         <button
-          class="text-blue-500 font-bold underline mb-2"
-          (click)= "onClickReadMore('minopexAnchor','minopex/1')"
-          >Read More</button
+          class="text-blue-500 font-bold hover:text-blue-600 underline mb-2"
+          (click)="onClickReadMore('minopexAnchor', 'minopex/1')"
         >
-        <p class=" font-semibold">Jan 2022 to Feb 2022</p>
+          Read More
+        </button>
+        <p class="font-semibold mb-0">Process Engineering Intern</p>
+        <p class="font-semibold">Jan 2022 to Feb 2022</p>
         <p class="">
-          During my second stint of vacation work at Minopex, I played an active
-          role in optimizing the flotation section's operations.
+          <span class="font-bold">During my second stint of vacation</span>
+          work at Minopex, I played an active role in optimizing the flotation
+          section's operations.
         </p>
-        <p class=" mt-3">
-          My responsibilities encompassed tasks like airflow optimization,
+        <p class="mt-3">
+          <span class="font-bold"
+            >My responsibilities encompassed tasks like airflow
+            optimization,</span
+          >
+
           reagent preparation, and maintaining uninterrupted flow in pipelines.
           My primary project involved conducting bench flotation tests and
           in-depth particle size distribution analysis, utilizing established
@@ -93,15 +150,20 @@
           our team's objectives.
         </p>
         <button
-          class="text-blue-500 font-bold underline"
-          (click)= "onClickReadMore('minopexAnchor','minopex/2')"
-          >Read More</button
+          class="text-blue-500 font-bold hover:text-blue-600 underline"
+          (click)="onClickReadMore('minopexAnchor', 'minopex/2')"
         >
+          Read More
+        </button>
       </div>
     </div>
   </div>
 
   <div
-    class="hidden sm:flex m-0 background-image w-0 sm:w-1/3 max-h-fit bg-cover bg-center"
+    class="hidden sm:flex m-0 background-image w-0 sm:w-5/12 max-h-fit bg-cover bg-center"
+  >
+  <div
+    class="text-center bg-slate-900 min-w-full min-h-screen opacity-25 m-0 flex flex-col justify-center items-center"
   ></div>
+</div>
 </section>
