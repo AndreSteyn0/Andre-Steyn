@@ -1,17 +1,30 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollService } from '../../../../../services/scroll.service';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-minopex-first',
   standalone: true,
   imports: [],
   templateUrl: './minopex-first.component.html',
-  styleUrl: './minopex-first.component.css'
+  styleUrl: './minopex-first.component.css',
 })
-export class MinopexFirstComponent {
-  constructor(private router: Router, private scrollService: ScrollService) {}
+export class MinopexFirstComponent implements AfterViewInit, OnInit {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router,
+    private scrollService: ScrollService
+  ) {}
 
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init();
+    }
+  }
+  
   ngAfterViewInit() {
     this.scrollService.scrollObservable.subscribe((section) => {
       setTimeout(() => {
@@ -26,6 +39,8 @@ export class MinopexFirstComponent {
   }
 
   scrollToElement(section: string) {
-    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', inline:'start', block: 'start' });
+    document
+      .getElementById(section)
+      ?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'start' });
   }
 }
