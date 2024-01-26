@@ -17,6 +17,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'minopex',
+    loadComponent: () =>
+      import('./components/experience/detailed/minopex/minopex.component').then(
+        (mod) => mod.MinopexComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: ''
   },

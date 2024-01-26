@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { AfterViewInit, Component } from '@angular/core';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-welcome',
@@ -9,14 +10,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './welcome.component.css',
 })
 
-export class WelcomeComponent implements OnInit {
-  currentWord: string = 'A DEVELOPER';
-  showSecondWord: boolean = false;
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.currentWord = 'ANDRE STEYN';
-      this.showSecondWord = true;
-    }, 3500);
-  }
+export class WelcomeComponent {
+  constructor(){}
 }

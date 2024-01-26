@@ -17,5 +17,6 @@ import { WelcomeComponent } from '../welcome/welcome.component';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-
+  constructor(){
+  }
 }

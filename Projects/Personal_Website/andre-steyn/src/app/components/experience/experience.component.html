@@ -1,40 +1,101 @@
-<section class="flex flex-col sm:flex-row">
-  <div class="m-0 w-full sm:w-3/4">
+<section id="experience" class="flex flex-col sm:flex-row">
+  <div class="m-0 w-full sm:w-2/3">
     <div class="bg-slate-300 w-full flex flex-col items-end">
       <h1
-      class="flex items-end justify-end main-bg-color max-w-fit custom-blue text-3xl uppercase p-2 font-bold"
-    >
-      Experience
-    </h1>
+        class="flex items-end justify-end main-bg-color max-w-fit custom-blue text-3xl uppercase p-2 font-bold"
+      >
+        Experience
+      </h1>
     </div>
     
     <div class="bg-slate-300 w-full p-8">
-      
-      <p class="custom-blue text-lg">
-        Join me on my journey at Dariel Software, a prominent software
-        consulting firm in Johannesburg, specializing in software development,
-        integration, technology consulting, and digital transformation.
-      </p>
-      <p class="custom-blue text-lg mt-3">
-        As a Junior Software Developer, my role at Dariel has been dynamic and
-        challenging. From contributing to a CMS project by enhancing the FHIR
-        API to leading the revitalization of an inherited Angular application,
-        my experiences have spanned a diverse range of projects and
-        technologies.
-      </p>
-      <!-- Add more content as needed -->
+      <div class="experience custom-blue text-lg">
+        <div id="darielAnchor" class="relative -top-20"></div>
+        <h2 class="custom-blue text-2xl font-bold">
+          Dariel Software, Johannesburg (South Africa)
+        </h2>
+        <p class="font-semibold mb-0">Junior Software Developer</p>
+        <p class="font-semibold">Feb 2023 to Present</p>
+        <p class="">
+          Join me on my journey at Dariel Software, a prominent software
+          consulting firm in Johannesburg, specializing in software development,
+          integration, technology consulting, and digital transformation. They
+          excel in creating tailored software solutions, managing the entire
+          development lifecycle, and seamlessly connecting applications and data
+          sources.
+        </p>
+        <p class="">
+          As a Junior Software Developer, my role at Dariel has been dynamic and
+          challenging. I started my journey by being assigned to a private
+          hospital company as a client. Here, I delved into the existing project
+          by writing unit tests, gaining a deeper understanding of its
+          functionality. Subsequently, I contributed to a CMS project by
+          extending the functionality of the FHIR API, enhancing its
+          capabilities.
+        </p>
+        <p class="">
+          My role further evolved as I took on different responsibilities,
+          focusing on resolving critical bugs in the main application, ensuring
+          its reliability and performance. The journey culminated as I took the
+          lead in getting an inherited Angular application up and running,
+          working collaboratively with the team to address and overcome numerous
+          challenges.
+        </p>
+        <button
+          class="text-blue-500 font-bold underline"
+          (click)= "noClickReadMore('darielAnchor','dariel')"
+          >Read More</button
+        >
+      </div>
 
-      <!-- Link to the detailed page -->
-      <a
-        class="text-blue-500 font-bold mt-5"
-        routerLink="dariel"
-        routerLinkActive="active"
-        >Read More</a
-      >
+      <div class="experience mt-8">
+        <div id="minopexAnchor" class="relative -top-20"></div>
+        <h2 class="custom-blue text-2xl font-bold">
+          Minopex, Kroondal (South Africa)
+        </h2>
+        <p class=" font-semibold mb-0">Process Engineering Intern</p>
+        <p class=" font-semibold">Jan 2021 to Feb 2021</p>
+        <p class="">
+          During my initial role at Minopex, I spearheaded a significant project
+          investigating the efficiency of dense medium cyclones and optimizing
+          ferrosilicon recovery, contributing to cost-effective process
+          enhancements.
+        </p>
+        <p class=" mt-3">
+          My collaboration with the junior metallurgist involved innovative data
+          analysis techniques to improve accuracy in flotation cell data
+          management. Additionally, I demonstrated strong written communication
+          skills in preparing various reports and documents, actively engaged in
+          continuous improvement initiatives, upheld safety standards, and
+          leveraged advanced Excel and Python expertise to streamline data
+          analysis and reporting processes.
+        </p>
+        <p class=" font-semibold">Jan 2022 to Feb 2022</p>
+        <p class="">
+          During my second stint of vacation work at Minopex, I played an active
+          role in optimizing the flotation section's operations.
+        </p>
+        <p class=" mt-3">
+          My responsibilities encompassed tasks like airflow optimization,
+          reagent preparation, and maintaining uninterrupted flow in pipelines.
+          My primary project involved conducting bench flotation tests and
+          in-depth particle size distribution analysis, utilizing established
+          methodologies to evaluate their influence on process efficiency.
+          Additionally, I leveraged Excel and Python for meticulous data
+          analysis and interpretation, thereby improving the effectiveness of
+          data-driven decision-making and making significant contributions to
+          our team's objectives.
+        </p>
+        <a
+          class="text-blue-500 font-bold mt-5"
+          (onClick)= "noClickReadMore('minopexAnchor','minopex')"
+          >Read More</a
+        >
+      </div>
     </div>
   </div>
 
   <div
-    class="hidden sm:flex m-0 background-image w-0 sm:w-1/2 max-h-fit bg-cover bg-center"
+    class="hidden sm:flex m-0 background-image w-0 sm:w-1/3 max-h-fit bg-cover bg-center"
   ></div>
 </section>
