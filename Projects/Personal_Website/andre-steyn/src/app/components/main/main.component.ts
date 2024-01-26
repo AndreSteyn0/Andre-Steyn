@@ -4,6 +4,7 @@ import { ExperienceComponent } from '../experience/experience.component';
 import { HeaderComponent } from '../header/header.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { EducationComponent } from '../education/education.component';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,8 @@ import { EducationComponent } from '../education/education.component';
     WelcomeComponent,
     AboutComponent,
     ExperienceComponent,
-    EducationComponent
+    EducationComponent,
+    ContactComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
