@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-10 bg-slate-100 p-1">
+<header class="sticky top-0 z-10 bg-slate-100 p-2">
   <section class="mx-auto max-w-7xl flex items-center justify-between">
     <h1 class="custom-blue text-4xl font-bold uppercase">André Steyn</h1>
     <button
@@ -21,7 +21,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content bg-black opacity-70 p-8">
+    <div class="modal-content bg-black bg-opacity-50 p-8">
       <div class="modal-body">
         <button
           type="button"
@@ -37,7 +37,7 @@
               <a
                 class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
                 data-bs-dismiss="modal"
-                (click)= "onClickRedirect('welcomeAnchor')"
+                (click)="onClickRedirect('welcomeAnchor')"
                 >Home</a
               >
             </li>
@@ -45,7 +45,7 @@
               <a
                 class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
                 data-bs-dismiss="modal"
-                (click)= "onClickRedirect('aboutAnchor')"
+                (click)="onClickRedirect('aboutAnchor')"
                 >About Me</a
               >
             </li>
@@ -53,13 +53,46 @@
               <a
                 class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
                 data-bs-dismiss="modal"
-                (click)= "onClickRedirect('experienceAnchor')"
+                (click)="onClickRedirect('experienceAnchor')"
                 >Experience</a
               >
             </li>
           </ul>
+          <div class="flex flex-row gap-4 mt-4 ">
+            <a
+              class="no-underline hover:cursor-pointer"
+              href="https://www.linkedin.com/in/andre-steyn98/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-12 h-auto flex align-middle items-center "
+                src="../../../assets/img/logos/linkedIn_240X240.png"
+                alt="LinkedIn"
+                title="Connect with me on LinkedIn."
+                width="240"
+                height="240"
+              />
+            </a>
+            <a
+              class="no-underline hover:cursor-pointer bg-black opacity-100 rounded-full"
+              href="https://github.com/AndreSteyn0/Andre-Steyn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-12 h-auto flex align-middle items-center"
+                src="../../../assets/img/logos/github_230X225.png"
+                alt="GitHub"
+                title="Visit my GitHub page."
+                width="230"
+                height="225"
+              />
+            </a>
+          </div>
         </div>
-      </div>
+        </div>
+        
     </div>
   </div>
 </div>

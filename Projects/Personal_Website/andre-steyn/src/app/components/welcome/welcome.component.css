@@ -1,9 +1,204 @@
 .background-image {
-  background-image: url("../../../assets/img/personal/personal_2_960X1439.jpg");
+  background-image: url("../../../assets/img/personal/personal_2_761X1134.jpg");
 }
 
 @media (min-width: 640px) {
   .background-image {
     background-image: url("../../../assets/img/tech/welcome_1920X1272.jpg");
+  }
+}
+
+.typewriter:after {
+  content: "A";
+  animation: write 10s linear infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes write {
+  1% {
+    content: "A";
+  }
+  2% {
+    content: "An";
+  }
+  3% {
+    content: "And";
+  }
+  4% {
+    content: "Andr";
+  }
+  5% {
+    content: "André";
+  }
+  6% {
+    content: "André ";
+  }
+  7% {
+    content: "André S";
+  }
+  8% {
+    content: "André St";
+  }
+  9% {
+    content: "André Ste";
+  }
+  10% {
+    content: "André Stey";
+  }
+  11% {
+    content: "André Steyn";
+  }
+  31% {
+    content: "André Steyn";
+  }
+  32% {
+    content: "André Stey";
+  }
+  33% {
+    content: "André Ste";
+  }
+  34% {
+    content: "André St";
+  }
+  35% {
+    content: "André S";
+  }
+  36% {
+    content: "André ";
+  }
+  37% {
+    content: "André";
+  }
+  38% {
+    content: "Andr";
+  }
+  39% {
+    content: "And";
+  }
+  40% {
+    content: "An";
+  }
+  41% {
+    content: "A";
+  }
+  42% {
+    content: "A";
+  }
+  43% {
+    content: "A ";
+  }
+  44% {
+    content: "A S";
+  }
+  45% {
+    content: "A So";
+  }
+  46% {
+    content: "A Sof";
+  }
+  47% {
+    content: "A Soft";
+  }
+  48% {
+    content: "A Softw";
+  }
+  49% {
+    content: "A Softwa";
+  }
+  50% {
+    content: "A Softwar";
+  }
+  51% {
+    content: "A Software";
+  }
+  52% {
+    content: "A Software ";
+  }
+  53% {
+    content: "A Software D";
+  }
+  54% {
+    content: "A Software De";
+  }
+  55% {
+    content: "A Software Dev";
+  }
+  56% {
+    content: "A Software Deve";
+  }
+  57% {
+    content: "A Software Devel";
+  }
+  58% {
+    content: "A Software Develo";
+  }
+  59% {
+    content: "A Software Develop";
+  }
+  60% {
+    content: "A Software Develope";
+  }
+  61% {
+    content: "A Software Developer";
+  }
+  81% {
+    content: "A Software Developer";
+  }
+  82% {
+    content: "A Software Develope";
+  }
+  83% {
+    content: "A Software Develop";
+  }
+  84% {
+    content: "A Software Develo";
+  }
+  85% {
+    content: "A Software Devel";
+  }
+  86% {
+    content: "A Software Deve";
+  }
+  87% {
+    content: "A Software Dev";
+  }
+  88% {
+    content: "A Software De";
+  }
+  89% {
+    content: "A Software D";
+  }
+  90% {
+    content: "A Software ";
+  }
+  91% {
+    content: "A Software";
+  }
+  92% {
+    content: "A Softwar";
+  }
+  93% {
+    content: "A Softwa";
+  }
+  94% {
+    content: "A Softw";
+  }
+  95% {
+    content: "A Soft";
+  }
+  96% {
+    content: "A Sof";
+  }
+  97% {
+    content: "A So";
+  }
+  98% {
+    content: "A S";
+  }
+  99% {
+    content: "A ";
+  }
+  100% {
+    content: "A";
   }
 }
