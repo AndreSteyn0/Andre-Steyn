@@ -33,7 +33,7 @@ export class ExperienceComponent implements AfterViewInit {
     }
   }
 
-  noClickReadMore(section: string, navigateTo: string) {
+  onClickReadMore(section: string, navigateTo: string) {
     this.scrollService.scrollTo(section);
     this.router.navigate([navigateTo]);
   }

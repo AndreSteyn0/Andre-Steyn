@@ -1,15 +1,15 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { Router} from '@angular/router';
-import { ScrollService } from '../../../../services/scroll.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ScrollService } from '../../../../../services/scroll.service';
 
 @Component({
-  selector: 'app-dariel',
+  selector: 'app-minopex-second',
   standalone: true,
   imports: [],
-  templateUrl: './dariel.component.html',
-  styleUrl: './dariel.component.css',
+  templateUrl: './minopex-second.component.html',
+  styleUrl: './minopex-second.component.css'
 })
-export class DarielComponent implements AfterViewInit {
+export class MinopexSecondComponent {
   constructor(private router: Router, private scrollService: ScrollService) {}
 
   ngAfterViewInit() {
@@ -21,7 +21,7 @@ export class DarielComponent implements AfterViewInit {
   }
 
   navigateAndScroll(): void {
-    this.scrollService.scrollTo('darielAnchor');
+    this.scrollService.scrollTo('minopexAnchor');
     this.router.navigate(['']);
   }
 

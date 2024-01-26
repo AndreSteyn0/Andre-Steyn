@@ -36,24 +36,24 @@
             <li>
               <a
                 class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
-                routerLink=""
-                routerLinkActive="active"
+                data-bs-dismiss="modal"
+                (click)= "onClickRedirect('welcomeAnchor')"
                 >Home</a
               >
             </li>
             <li>
               <a
                 class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
-                routerLink="/about"
-                routerLinkActive="active"
+                data-bs-dismiss="modal"
+                (click)= "onClickRedirect('aboutAnchor')"
                 >About Me</a
               >
             </li>
             <li>
               <a
                 class="flex items-center justify-center p-2 hover:opacity-50 hover:cursor-pointer text-white text-2xl font-bold no-underline"
-                routerLink="/experience"
-                routerLinkActive="active"
+                data-bs-dismiss="modal"
+                (click)= "onClickRedirect('experienceAnchor')"
                 >Experience</a
               >
             </li>

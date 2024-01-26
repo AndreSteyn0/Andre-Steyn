@@ -1,4 +1,5 @@
-<section id="experience" class="flex flex-col sm:flex-row">
+<section class="flex flex-col sm:flex-row">
+  <div id="experienceAnchor" class="relative -top-16"></div>
   <div class="m-0 w-full sm:w-2/3">
     <div class="bg-slate-300 w-full flex flex-col items-end">
       <h1
@@ -43,7 +44,7 @@
         </p>
         <button
           class="text-blue-500 font-bold underline"
-          (click)= "noClickReadMore('darielAnchor','dariel')"
+          (click)= "onClickReadMore('darielAnchor','dariel')"
           >Read More</button
         >
       </div>
@@ -70,6 +71,11 @@
           leveraged advanced Excel and Python expertise to streamline data
           analysis and reporting processes.
         </p>
+        <button
+          class="text-blue-500 font-bold underline mb-2"
+          (click)= "onClickReadMore('minopexAnchor','minopex/1')"
+          >Read More</button
+        >
         <p class=" font-semibold">Jan 2022 to Feb 2022</p>
         <p class="">
           During my second stint of vacation work at Minopex, I played an active
@@ -86,10 +92,10 @@
           data-driven decision-making and making significant contributions to
           our team's objectives.
         </p>
-        <a
-          class="text-blue-500 font-bold mt-5"
-          (onClick)= "noClickReadMore('minopexAnchor','minopex')"
-          >Read More</a
+        <button
+          class="text-blue-500 font-bold underline"
+          (click)= "onClickReadMore('minopexAnchor','minopex/2')"
+          >Read More</button
         >
       </div>
     </div>
