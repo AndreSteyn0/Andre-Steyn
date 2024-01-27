@@ -1,3 +1,15 @@
 .background-image {
+  background-image: url("../../../assets/img/personal/personal_2_960X1439.jpg");
+}
+
+.background-image-small-screen {
   background-image: url("../../../assets/img/personal/personal_2_761X1134.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .background-image-small-screen {
+      background-image: none;
+  }
 }

@@ -1,11 +1,5 @@
 .background-image {
-  background-image: url("../../../assets/img/personal/personal_2_761X1134.jpg");
-}
-
-@media (min-width: 640px) {
-  .background-image {
-    background-image: url("../../../assets/img/tech/welcome_1920X1272.jpg");
-  }
+  background-image: url("../../../assets/img/tech/welcome_1920X1272.jpg");
 }
 
 .typewriter:after {

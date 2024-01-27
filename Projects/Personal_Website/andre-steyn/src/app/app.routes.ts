@@ -17,14 +17,14 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'minopex/1',
+    path: 'minopex-1',
     loadComponent: () =>
       import('./components/experience/detailed/minopex/minopex-first/minopex-first.component').then(
         (mod) => mod.MinopexFirstComponent
       ),
   },
   {
-    path: 'minopex/2',
+    path: 'minopex22',
     loadComponent: () =>
       import('./components/experience/detailed/minopex/minopex-second/minopex-second.component').then(
         (mod) => mod.MinopexSecondComponent
