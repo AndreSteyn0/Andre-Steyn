@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { EducationComponent } from '../education/education.component';
 import { ContactComponent } from '../contact/contact.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-main',
@@ -15,7 +16,8 @@ import { ContactComponent } from '../contact/contact.component';
     AboutComponent,
     ExperienceComponent,
     EducationComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
