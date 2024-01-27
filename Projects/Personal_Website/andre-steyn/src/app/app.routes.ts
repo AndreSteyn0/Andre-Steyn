@@ -24,7 +24,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'minopex22',
+    path: 'minopex-2',
     loadComponent: () =>
       import('./components/experience/detailed/minopex/minopex-second/minopex-second.component').then(
         (mod) => mod.MinopexSecondComponent
