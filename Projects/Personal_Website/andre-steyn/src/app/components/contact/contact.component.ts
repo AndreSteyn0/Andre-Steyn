@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,7 +21,10 @@ export class ContactComponent implements OnInit {
   public contactForm!: FormGroup;
   public showSuccessMessage = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -35,11 +39,23 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.contactForm);
-    this.contactForm.reset();
-    this.showSuccessMessage = true;
-    setTimeout(() => {
-      this.showSuccessMessage = false;
-    }, 5000);
+    if (this.contactForm.valid) {
+      const formValues = this.contactForm.value;
+
+      this.contactService.sendEmail(formValues).subscribe(
+        () => {
+          console.log('Email sent successfully');
+          this.showSuccessMessage = true;
+          this.contactForm.reset();
+          setTimeout(() => {
+            this.showSuccessMessage = false;
+          }, 5000);
+        },
+        (error) => {
+          console.error('Error sending email:', error);
+          // Handle error as needed
+        }
+      );
+    }
   }
 }

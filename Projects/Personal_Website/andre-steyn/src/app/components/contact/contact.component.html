@@ -15,7 +15,7 @@
       </h1>
     </header>
 
-    <div class="flex items-center justify-center p-5">
+    <div class="flex items-center justify-center p-5 text-lg">
       <div
         class="bg-blue-500 bg-opacity-90 text-slate-200 p-10 rounded-lg shadow-lg max-w-md"
         data-aos="fade-up"
@@ -81,7 +81,7 @@
               name="email"
               id="email"
               placeholder="Your Email"
-              class="w-full p-3 border-none rounded bg-slate-300 custom-blue placeholder-gray-500 focus:outline-none focus:ring focus:border-blue-300"
+              class="form-control w-full p-3 border-none rounded bg-slate-300 custom-blue placeholder-gray-500 focus:outline-none focus:ring focus:border-blue-300"
               formControlName="email"
             />
             @if(!contactForm.get('email')?.valid &&
@@ -95,7 +95,7 @@
               name="message"
               id="message"
               placeholder="Your Message"
-              class="w-full h-[100px] p-[12px] border-none rounded bg-slate-300 custom-blue placeholder-gray-500 resize-none outline-none"
+              class="form-control w-full p-3 border-none rounded bg-slate-300 custom-blue placeholder-gray-500 focus:outline-none focus:ring focus:border-blue-300"
               formControlName="message"
             ></textarea>
             @if(!contactForm.get('message')?.valid &&
