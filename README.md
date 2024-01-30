@@ -1,2 +1,11 @@
 # Andre-Steyn
-Welcome to my personal GitHub repository, the hub of André's coding journey. As a junior software developer with a passion for full-stack development, I invite you to explore a curated collection of projects that embody my dedication to innovation and proficiency in technologies like ASP.NET Core and Angular.
+
+👋 Hey there! Welcome to my repository! 🚀
+
+In this corner of the coding universe, you'll find a collection of my HTML and CSS projects – the playground where I hone my skills and explore the art of web development. 💻✨
+
+Curious about my personal web space? Dive into the source code for my website, where pixels meet personality! 🌐
+
+Whether you're a fellow developer looking for inspiration or just casually browsing, feel free to explore, fork, and tinker with the code. Let's build and break things together! 🛠️👩‍💻
+
+Happy coding! 🚧🎉
