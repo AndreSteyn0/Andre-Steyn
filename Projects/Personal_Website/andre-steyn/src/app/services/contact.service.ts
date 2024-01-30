@@ -7,15 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
   private apiUrl =
-    'https://4qs8axqlzf.execute-api.af-south-1.amazonaws.com/prod/send-email';
-  private apiKey = 'WxUe5mO8k89f5eiLWyT7I379vfz2tBrZ8IqlVKb5';
+    'https://7u2x19jfsk.execute-api.af-south-1.amazonaws.com/default/send-email';
 
   constructor(private http: HttpClient) {}
 
   sendEmail(body: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'x-api-key': this.apiKey,
     });
 
     return this.http.post(this.apiUrl, body, { headers });

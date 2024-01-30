@@ -40,10 +40,14 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      const formValues = this.contactForm.value;
+      const formValues = {
+        name: this.contactForm.value.name,
+        email: this.contactForm.value.name,
+        message: this.contactForm.value.message,
+      };
 
       this.contactService.sendEmail(formValues).subscribe(
-        () => {
+        (response) => {
           console.log('Email sent successfully');
           this.showSuccessMessage = true;
           this.contactForm.reset();
