@@ -1,19 +1,11 @@
 #include "stdio.h"
 #include "defs.h"
 
-<<<<<<< HEAD
 const int BitTable[64] = {
     63, 30, 3, 32, 25, 41, 22, 33, 15, 50, 42, 13, 11, 53, 19, 34, 61, 29, 2,
     51, 21, 43, 45, 10, 18, 47, 1, 54, 9, 57, 0, 35, 62, 31, 40, 4, 49, 5, 52,
     26, 60, 6, 23, 44, 46, 27, 56, 16, 7, 39, 48, 24, 59, 14, 12, 55, 38, 28,
     58, 20, 37, 17, 36, 8};
-=======
-// TODO: The BitTable and PopBit function can be optimized:
-// 1. The BitTable can be removed and the PopBit function can be converted to an inline function.
-// 2. The BitTable table can be initialized in the init.c file.
-const int BitTable[64] = {
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63};
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 
 /*
   This function returns the index of the least significant bit set in the bitboard.

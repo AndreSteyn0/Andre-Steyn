@@ -25,3 +25,13 @@ replay_pid*
 
 # vscode
 **/.vscode/*
+
+# executables
+**/bin/*
+**/target/*
+**/out/*
+**/build/*
+**/dist/*
+**/node_modules/*
+**/bower_components/*
+**/*.exe

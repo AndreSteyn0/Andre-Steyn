@@ -18,11 +18,7 @@ typedef unsigned long long U64;
 
 #pragma region ENUMS
 
-<<<<<<< HEAD
 enum PIECES
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         EMPTY,
         wP,
@@ -39,11 +35,7 @@ enum
         bK
 }; // Piece values
 
-<<<<<<< HEAD
 enum FILES
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         FILE_A,
         FILE_B,
@@ -56,11 +48,7 @@ enum
         FILE_NONE
 }; // File values
 
-<<<<<<< HEAD
 enum RANKS
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         RANK_1,
         RANK_2,
@@ -73,22 +61,14 @@ enum
         RANK_NONE
 }; // Rank values
 
-<<<<<<< HEAD
 enum COLORS
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         WHITE,
         BLACK,
         BOTH
 }; // Side values
 
-<<<<<<< HEAD
 enum SQUARES
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         A1 = 21,
         B1,
@@ -158,21 +138,13 @@ enum
         OFFBOARD
 }; // Board square values
 
-<<<<<<< HEAD
 enum BOOL
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         FALSE,
         TRUE
 };
 
-<<<<<<< HEAD
 enum CASTLE
-=======
-enum
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 {
         NONE = 0,
         WKCA = 1,
@@ -185,7 +157,6 @@ enum
 
 #pragma region STRUCTS
 
-<<<<<<< HEAD
 /*
         This structure contains the history of the game.
 */
@@ -204,44 +175,20 @@ typedef struct S_UNDO
 typedef struct S_BOARD
 {
         int pieces[BRD_SQ_NUM]; // pieces on the board
-=======
-typedef struct S_UNDO
-{
-        int move;
-        int castlePerm;
-        int enPas;
-        int fiftyMove;
-        U64 hashKey;
-} S_UNDO;
-
-typedef struct S_BOARD
-{
-        int pieces[BRD_SQ_NUM];
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
         U64 pawns[3];
 
         int KingSq[2];
 
-<<<<<<< HEAD
         int side;       // side to move
         int enPas;      // En passant square
         int fiftyMove;  // fifty move rule
         int castlePerm; // castle permissions
 
         int ply; // half moves
-=======
-        int side;
-        int enPas;
-        int fiftyMove;
-        int castlePerm;
-
-        int ply;
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
         int hisPly;
 
         U64 hashKey;
 
-<<<<<<< HEAD
         int pceNum[13];      // number of pieces
         int bigPce[2];       // big pieces (knigts, bishops, rooks, queens, and kings)
         int majPce[2];       // major pieces (rooks, queens, and kings)
@@ -250,17 +197,6 @@ typedef struct S_BOARD
         int pceList[13][10]; // piece list
 
         S_UNDO history[MAXGAMEMOVES]; // history of the game
-=======
-        int pceNum[13];
-        int bigPce[3];
-        int majPce[3]; // major pieces (rooks and queens)
-        int minPce[3]; // minor pieces (bishops and knights)
-
-        S_UNDO history[MAXGAMEMOVES];
-
-        // piece list
-        int pceList[13][10];
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 } S_BOARD;
 
 #pragma endregion STRUCTS
@@ -275,25 +211,19 @@ extern U64 ClearMask[64];
 extern U64 PieceKeys[13][120];
 extern U64 SideKey;
 extern U64 CastleKeys[16];
-<<<<<<< HEAD
 extern int FilesBrd[BRD_SQ_NUM];
 extern int RanksBrd[BRD_SQ_NUM];
-=======
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 
 // data.c
 extern char PceChar[];
 extern char SideChar[];
 extern char RankChar[];
 extern char FileChar[];
-<<<<<<< HEAD
 extern int PceBig[13];
 extern int PceMaj[13];
 extern int PceMin[13];
 extern int PceVal[13];
 extern int PceCol[13];
-=======
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 
 #pragma endregion GLOBALS
 
@@ -314,10 +244,7 @@ extern U64 GeneratePosKey(const S_BOARD *pos);
 extern void ResetBoard(S_BOARD *pos);
 extern int ParseFen(char *fen, S_BOARD *pos);
 extern void PrintBoard(const S_BOARD *pos);
-<<<<<<< HEAD
 extern int CheckBoard(const S_BOARD *pos);
-=======
->>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 
 #pragma endregion FUNCTIONS DECLARATIONS
 
