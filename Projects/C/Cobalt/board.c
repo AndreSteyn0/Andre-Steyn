@@ -2,6 +2,7 @@
 
 #include "defs.h"
 
+<<<<<<< HEAD
 int CheckBoard(const S_BOARD *pos)
 {
         int t_pceNum[13] = {0};
@@ -163,6 +164,8 @@ void UpdateListsMaterial(S_BOARD *pos)
         }
 }
 
+=======
+>>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 /*
         This function parses the FEN string and sets the board to the position described in the FEN string.
 */
@@ -315,9 +318,12 @@ int ParseFen(char *fen, S_BOARD *pos)
 
         // set the hash key
         pos->hashKey = GeneratePosKey(pos);
+<<<<<<< HEAD
 
         UpdateListsMaterial(pos);
 
+=======
+>>>>>>> 0da313e85660c338b912763091b7765692c2a88a
         return 0;
 }
 

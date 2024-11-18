@@ -10,6 +10,7 @@ U64 PieceKeys[13][120];
 U64 SideKey;
 U64 CastleKeys[16];
 
+<<<<<<< HEAD
 int FilesBrd[BRD_SQ_NUM];
 int RanksBrd[BRD_SQ_NUM];
 
@@ -42,6 +43,8 @@ void InitFilesRanksBrd()
         }
 }
 
+=======
+>>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 /*
   This function initializes the arrays PieceKeys, SideKey, and CastleKeys.
   PieceKeys is a 13x120 array that contains random 64 bit numbers for each piece on each square.
@@ -125,5 +128,8 @@ void AllInit()
         InitSq120To64();
         InitBitMasks();
         InitHashKeys();
+<<<<<<< HEAD
         InitFilesRanksBrd();
+=======
+>>>>>>> 0da313e85660c338b912763091b7765692c2a88a
 }
