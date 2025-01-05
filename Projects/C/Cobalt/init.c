@@ -56,7 +56,7 @@ void InitFilesRanksBrd()
         {
                 for (file = FILE_A; file <= FILE_H; ++file)
                 {
-                        sq = FR2SQ(file, rank);
+                        sq = FileRankToSquare(file, rank);
                         FilesBrd[sq] = file;
                         RanksBrd[sq] = rank;
                 }
@@ -139,7 +139,7 @@ void InitSq120To64()
         {
                 for (file = FILE_A; file <= FILE_H; ++file)
                 {
-                        sq = FR2SQ(file, rank);
+                        sq = FileRankToSquare(file, rank);
                         Sq64ToSq120[sq64] = sq;
                         Sq120ToSq64[sq] = sq64;
                         sq64++;

@@ -1,54 +1,15 @@
-///< attack.c
+/**
+ * @file attack.c
+ * @brief This file contains the functions that check if a square is attacked.
+ */
 
 #include "defs.h"
-
-#pragma region INLINE FUNCTIONS
-
-/*
-  This function checks if the piece is a Bishop or a Queen.
-*/
-static inline int isBQ(int piece)
-{
-        return PieceBishopQueen[piece];
-}
-
-/*
-  This function checks if the piece is a Rook or a Queen.
-*/
-static inline int isRQ(int piece)
-{
-        return PieceRookQueen[piece];
-}
-
-/*
-  This function checks if the piece is a sliding piece.
-*/
-static inline int isSlide(int piece)
-{
-        return PieceSlides[piece];
-}
-
-/*
-  This function checks if the piece is a knight.
-*/
-static inline int isKn(int piece)
-{
-        return PieceKnight[piece];
-}
-
-#pragma endregion INLINE FUNCTIONS
-
-#pragma region CONSTANTS
 
 ///< The following arrays contain the directions that each piece can move in.
 const int KnDir[8] = {-8, -19, -21, -12, 8, 19, 21, 12};
 const int RkDir[4] = {-1, -10, 1, 10};
 const int BiDir[4] = {-9, -11, 11, 9};
 const int KiDir[8] = {-1, -10, 1, 10, -9, -11, 11, 9};
-
-#pragma endregion CONSTANTS
-
-#pragma region FUNCTIONS
 
 /**
  * This function checks if a square is attacked by a piece.
@@ -60,6 +21,10 @@ const int KiDir[8] = {-1, -10, 1, 10, -9, -11, 11, 9};
 int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
 {
         int piece, index, t_sq, dir;
+
+        ASSERT(SqOnBoard(sq));
+        ASSERT(SideValid(attackingSide));
+        ASSERT(CheckBoard(pos));
 
         ///< Check for pawns
         if (attackingSide == WHITE)
@@ -81,7 +46,7 @@ int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
         for (index = 0; index < ARRLEN(KnDir); ++index)
         {
                 piece = pos->pieces[sq + KnDir[index]];
-                if (piece != OFFBOARD && isKn(piece) && PieceCol[piece] == attackingSide)
+                if (piece != OFFBOARD && IsKn(piece) && PieceCol[piece] == attackingSide)
                 {
                         return TRUE;
                 }
@@ -97,7 +62,7 @@ int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
                 {
                         if (piece != EMPTY)
                         {
-                                if (isRQ(piece) && PieceCol[piece] == attackingSide)
+                                if (IsRQ(piece) && PieceCol[piece] == attackingSide)
                                 {
                                         return TRUE;
                                 }
@@ -118,7 +83,7 @@ int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
                 {
                         if (piece != EMPTY)
                         {
-                                if (isBQ(piece) && PieceCol[piece] == attackingSide)
+                                if (IsBQ(piece) && PieceCol[piece] == attackingSide)
                                 {
                                         return TRUE;
                                 }
@@ -133,7 +98,7 @@ int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
         for (index = 0; index < ARRLEN(KiDir); ++index)
         {
                 piece = pos->pieces[sq + KiDir[index]];
-                if (piece != OFFBOARD && isKn(piece) && PieceCol[piece] == attackingSide)
+                if (piece != OFFBOARD && IsKn(piece) && PieceCol[piece] == attackingSide)
                 {
                         return TRUE;
                 }
@@ -141,5 +106,3 @@ int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
 
         return FALSE;
 }
-
-#pragma endregion FUNCTIONS

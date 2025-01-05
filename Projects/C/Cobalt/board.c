@@ -64,29 +64,29 @@ int CheckBoard(const S_BOARD *pos)
         }
 
         ///< Check bitboards count
-        pcount = CNT(t_pawns[WHITE]);
+        pcount = Count(t_pawns[WHITE]);
         ASSERT(pcount == pos->pieceNum[wP]);
-        pcount = CNT(t_pawns[BLACK]);
+        pcount = Count(t_pawns[BLACK]);
         ASSERT(pcount == pos->pieceNum[bP]);
-        pcount = CNT(t_pawns[BOTH]);
+        pcount = Count(t_pawns[BOTH]);
         ASSERT(pcount == (pos->pieceNum[bP] + pos->pieceNum[wP]));
 
         ///< Check bitboards squares
         while (t_pawns[WHITE])
         {
-                sq64 = POP(&t_pawns[WHITE]);
+                sq64 = Pop(&t_pawns[WHITE]);
                 ASSERT(pos->pieces[SQ120(sq64)] == wP);
         }
 
         while (t_pawns[BLACK])
         {
-                sq64 = POP(&t_pawns[BLACK]);
+                sq64 = Pop(&t_pawns[BLACK]);
                 ASSERT(pos->pieces[SQ120(sq64)] == bP);
         }
 
         while (t_pawns[BOTH])
         {
-                sq64 = POP(&t_pawns[BOTH]);
+                sq64 = Pop(&t_pawns[BOTH]);
                 ASSERT((pos->pieces[SQ120(sq64)] == bP) || (pos->pieces[SQ120(sq64)] == wP));
         }
 
@@ -97,7 +97,8 @@ int CheckBoard(const S_BOARD *pos)
         ASSERT(t_bigPiece[WHITE] == pos->bigPiece[WHITE] && t_bigPiece[BLACK] == pos->bigPiece[BLACK]);
 
         ASSERT(pos->side == WHITE || pos->side == BLACK); ///< Check the side to move
-        ASSERT(GeneratePosKey(pos) == pos->hashKey);      ///< Check the hash key
+
+        ASSERT(GeneratePosKey(pos) == pos->hashKey); ///< Check the hash key
 
         ///< Check the en passant square
         ASSERT(pos->enPas == NO_SQ || (RanksBrd[pos->enPas] == RANK_6 && pos->side == WHITE) || (RanksBrd[pos->enPas] == RANK_3 && pos->side == BLACK));
@@ -136,8 +137,8 @@ void UpdateListsMaterial(S_BOARD *pos)
                 if (PieceBig[piece] == FALSE)
                 {
 
-                        SETBIT(&pos->pawns[color], SQ64(sq));
-                        SETBIT(&pos->pawns[BOTH], SQ64(sq));
+                        SetBit(&pos->pawns[color], SQ64(sq));
+                        SetBit(&pos->pawns[BOTH], SQ64(sq));
                         continue;
                 }
 
@@ -316,7 +317,7 @@ int ParseFen(char *fen, S_BOARD *pos)
                 ASSERT(file >= FILE_A && file <= FILE_H);
                 ASSERT(rank >= RANK_1 && rank <= RANK_8);
 
-                pos->enPas = FR2SQ(file, rank);
+                pos->enPas = FileRankToSquare(file, rank);
         }
 
         pos->hashKey = GeneratePosKey(pos);
@@ -358,6 +359,7 @@ void ResetBoard(S_BOARD *pos)
                 pos->bigPiece[index] = 0;
                 pos->majPiece[index] = 0;
                 pos->minPiece[index] = 0;
+                pos->material[index] = 0;
         }
 
         ///< Set all the piece numbers to 0
@@ -394,7 +396,7 @@ void PrintBoard(const S_BOARD *pos)
                 printf("%d  ", rank + 1);
                 for (file = FILE_A; file <= FILE_H; file++)
                 {
-                        sq = FR2SQ(file, rank);
+                        sq = FileRankToSquare(file, rank);
                         piece = pos->pieces[sq];
                         printf("%3c", PieceChar[piece]);
                 }

@@ -1,3 +1,8 @@
+/**
+ * @file defs.h
+ * @brief This file contains the definitions for the game.
+ */
+
 #ifndef DEFS_H
 #define DEFS_H
 
@@ -16,8 +21,15 @@ typedef unsigned long long U64;
 #define NAME "Cobalt 1.0"
 #define BRD_SQ_NUM 120
 #define MAXGAMEMOVES 2048
+#define MAXPOSITIONMOVES 256
 #define START_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 #define NUMBER_OF_PIECES 13
+
+#define MFLAGEP 0x40000     ///< En passant capture
+#define MFLAGPS 0x80000     ///< Pawn start
+#define MFLAGCA 0x1000000   ///< Castle
+#define MFLAGCAP 0x7C000    ///< Captured piece
+#define MFLAGPROM 0xF000000 ///< Promoted piece
 
 #pragma endregion CONSTANTS
 
@@ -184,6 +196,32 @@ enum CASTLE
 #pragma region STRUCTS
 
 /**
+ * This structure contains a move.
+ * The move is encoded as follows:
+ * 0000 0000 0000 0000 0000 0111 1111 -> From square, Hex max size: 0x7F
+ * 0000 0000 0000 0011 1111 1000 0000 -> To square, Hex max size: 0x7F << 7
+ * 0000 0000 0011 1100 0000 0000 0000 -> Captured piece, Hex max size: 0xF << 14
+ * 0000 0000 0100 0000 0000 0000 0000 -> En passant capture, Hex max size: 0x40000
+ * 0000 0000 1000 0000 0000 0000 0000 -> Pawn start, Hex max size: 0x80000
+ * 0000 1111 0000 0000 0000 0000 0000 -> Promoted piece, Hex max size: 0xF << 20
+ * 0001 0000 0000 0000 0000 0000 0000 -> Castle, Hex max size: 0x1000000
+ */
+typedef struct S_MOVE
+{
+        int move;
+        int score; ///< Score of the move. Used for move ordering.
+} S_MOVE;
+
+/**
+ * This structure contains a list of moves.
+ */
+typedef struct S_MOVELIST
+{
+        S_MOVE moves[MAXPOSITIONMOVES];
+        int count; ///< Number of moves in the list
+} S_MOVELIST;
+
+/**
  * This structure contains the history of the game.
  */
 typedef struct S_UNDO
@@ -251,21 +289,21 @@ extern int FilesBrd[BRD_SQ_NUM];
 extern int RanksBrd[BRD_SQ_NUM];
 
 ///< data.c
-extern char PieceChar[];
-extern char SideChar[];
-extern char RankChar[];
-extern char FileChar[];
-extern int PieceBig[NUMBER_OF_PIECES];
-extern int PieceMaj[NUMBER_OF_PIECES];
-extern int PieceMin[NUMBER_OF_PIECES];
-extern int PieceVal[NUMBER_OF_PIECES];
-extern int PieceCol[NUMBER_OF_PIECES];
-extern int PiecePawn[NUMBER_OF_PIECES];
-extern int PieceKnight[NUMBER_OF_PIECES];
-extern int PieceKing[NUMBER_OF_PIECES];
-extern int PieceRookQueen[NUMBER_OF_PIECES];
-extern int PieceBishopQueen[NUMBER_OF_PIECES];
-extern int PieceSlides[NUMBER_OF_PIECES];
+extern const char PieceChar[];
+extern const char SideChar[];
+extern const char RankChar[];
+extern const char FileChar[];
+extern const int PieceBig[NUMBER_OF_PIECES];
+extern const int PieceMaj[NUMBER_OF_PIECES];
+extern const int PieceMin[NUMBER_OF_PIECES];
+extern const int PieceVal[NUMBER_OF_PIECES];
+extern const int PieceCol[NUMBER_OF_PIECES];
+extern const int PiecePawn[NUMBER_OF_PIECES];
+extern const int PieceKnight[NUMBER_OF_PIECES];
+extern const int PieceKing[NUMBER_OF_PIECES];
+extern const int PieceRookQueen[NUMBER_OF_PIECES];
+extern const int PieceBishopQueen[NUMBER_OF_PIECES];
+extern const int PieceSlides[NUMBER_OF_PIECES];
 
 #pragma endregion GLOBALS
 
@@ -290,6 +328,27 @@ extern int CheckBoard(const S_BOARD *pos);
 
 ///< attack.c
 extern int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos);
+
+///< io.c
+extern char *PrSq(const int sq);
+extern char *PrMove(const int move);
+extern void PrintMoveList(const S_MOVELIST *list);
+
+///< validate.c
+extern int SqOnBoard(const int sq);
+extern int SideValid(const int side);
+extern int FileRankValid(const int fr);
+extern int PieceValidEmpty(const int pce);
+extern int PieceValid(const int pce);
+
+///< movegen.c
+extern void GenerateAllMoves(const S_BOARD *pos, S_MOVELIST *moveList);
+
+///< makemove.c
+extern int MakeMove(S_BOARD *pos, const int move);
+extern void TakeBackMove(S_BOARD *pos);
+
+///< perft.c
 
 #pragma endregion FUNCTIONS DECLARATIONS
 
@@ -326,12 +385,96 @@ extern int SqAttacked(const int sq, const int attackingSide, const S_BOARD *pos)
 #pragma region INLINE FUNCTIONS
 
 /**
+ * This function checks if the piece is a Bishop or a Queen.
+ * @param[in] piece: the piece.
+ * @return TRUE if the piece is a Bishop or a Queen, FALSE otherwise.
+ */
+static inline int IsBQ(int piece)
+{
+        return PieceBishopQueen[piece];
+}
+
+/**
+ * This function checks if the piece is a Rook or a Queen.
+ * @param[in] piece: the piece.
+ * @return TRUE if the piece is a Rook or a Queen, FALSE otherwise.
+ */
+static inline int IsRQ(int piece)
+{
+        return PieceRookQueen[piece];
+}
+
+/**
+ * This function checks if the piece is a sliding piece.
+ * @param[in] piece: the piece.
+ * @return TRUE if the piece is a sliding piece, FALSE otherwise.
+ */
+static inline int IsSlide(int piece)
+{
+        return PieceSlides[piece];
+}
+
+/**
+ * This function checks if the piece is a knight.
+ * @param[in] piece: the piece.
+ * @return TRUE if the piece is a knight, FALSE otherwise.
+ */
+static inline int IsKn(int piece)
+{
+        return PieceKnight[piece];
+}
+
+/**
+ * This functions extracts the to square from which the move was made.
+ * From Square: 0000 0000 0000 0000 0000 0111 1111 -> Hex max size: 0x7F
+ * @param[in] m: the move.
+ * @return The move from which the move was made.
+ */
+static inline int FromSquare(const int m)
+{
+        return (m & 0x7F);
+}
+
+/**
+ * This functions extracts the to square to which the move was made.
+ * To Square: 0000 0000 0000 0011 1111 1000 0000 -> Hex max size: 0x7F << 7
+ * @param[in] m: the move.
+ * @return The move to which the move was made.
+ */
+static inline int ToSquare(const int m)
+{
+        return ((m >> 7) & 0x7F);
+}
+
+/**
+ * This functions extracts the captured piece from the move.
+ * Captured Piece: 0000 0000 0011 1100 0000 0000 0000 -> Hex max size: 0xF << 14
+ * @param[in] m: the move.
+ * @return The captured piece from the move.
+ */
+static inline int Captured(const int m)
+{
+        return ((m >> 14) & 0xF);
+}
+
+/**
+ * This functions extracts the promoted piece from the move.
+ * Promoted Piece: 0000 1111 0000 0000 0000 0000 0000 -> Hex max size: 0xF << 20
+ * @param[in] m: the move.
+ * @return The promoted piece from the move.
+ */
+static inline int Promoted(const int m)
+{
+        return ((m >> 20) & 0xF);
+}
+
+/**
  * This function converts a file and rank to a 120 based square.
  * @param[in] f: the file.
  * @param[in] r: the rank.
  * @return The 120 based square.
  */
-static inline int FR2SQ(int f, int r)
+static inline int FileRankToSquare(int f, int r)
 {
         return ((21 + (f)) + ((r) * 10));
 }
@@ -361,7 +504,7 @@ static inline int SQ120(int sq64)
  * @param[in] b: the bitboard.
  * @return The index of the least significant bit set in the bitboard.
  */
-static inline int POP(U64 *b)
+static inline int Pop(U64 *b)
 {
         return (PopBit(b));
 }
@@ -371,7 +514,7 @@ static inline int POP(U64 *b)
  * @param[in] b: the bitboard.
  * @return The number of bits set in the bitboard.
  */
-static inline int CNT(U64 b)
+static inline int Count(U64 b)
 {
         return (CountBits(b));
 }
@@ -381,7 +524,7 @@ static inline int CNT(U64 b)
  * @param[in] bb: the bitboard.
  * @param[in] sq: the square.
  */
-static inline void CLRBIT(U64 *bb, int sq)
+static inline void ClearBit(U64 *bb, int sq)
 {
         *bb &= ClearMask[sq];
 }
@@ -391,7 +534,7 @@ static inline void CLRBIT(U64 *bb, int sq)
  * @param[in] bb: the bitboard.
  * @param[in] sq: the square.
  */
-static inline void SETBIT(U64 *bb, int sq)
+static inline void SetBit(U64 *bb, int sq)
 {
         *bb |= SetMask[sq];
 }

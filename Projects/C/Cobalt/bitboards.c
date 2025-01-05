@@ -54,7 +54,7 @@ void PrintBitBoard(U64 bb)
         {
                 for (file = FILE_A; file <= FILE_H; file++)
                 {
-                        sq = FR2SQ(file, rank);
+                        sq = FileRankToSquare(file, rank);
                         sq64 = SQ64(sq);
                         if ((shiftMe << sq64) & bb)
                                 printf("X");
